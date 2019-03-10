@@ -13,7 +13,7 @@ public class TestString{
          
          String str3 = new String("java is best");
          System.out.println(str1==str2);//true 
-        // System.out.println(str1==str3);//false
+         System.out.println(str1==str3);//false
          
          //比较字符串的值
          System.out.println("str1 equals str3 "+ str1.equals(str3));
@@ -78,7 +78,6 @@ public class TestString{
                 System.out.print(", ");
             }
         }
-		//
         System.out.println();
         String str2 =new String(chars);
         System.out.println(str2);//helloworld
@@ -118,12 +117,11 @@ public class TestString{
         System.out.println("a".compareTo("A")); // 32 >0
         System.out.println("A".compareTo("A")); // 0  =0
         System.out.println("AB".compareTo("AC")); // -1 <0
-        
+        //\u4e00 \u9fa5
         System.out.println("刘".compareTo("杨"));// -5456 <0
     }
     
     //字符串查找
-	//123
     public static void code7(){
         String str1 = "helloworld";
         System.out.println(str1.contains("world"));//true
