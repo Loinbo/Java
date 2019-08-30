@@ -87,11 +87,40 @@ public class HandlerClient implements Runnable{
      * 以 userName 为 key 注册当前用户(Socket client)
      * @param userName
      */
-    private void register(String userName) {
+    private void register(String userName)  {
 
-        ONLINE_CLIENT_MAP.put(userName, this.client);
-        printOnlineClient();
-        this.sendMessage(this.client, "恭喜" + userName + "注册成功!", false);
+        boolean hasExists = ONLINE_CLIENT_MAP.containsKey(userName);
+        int len = userName.length();
+
+        if(userName.trim().length() < 1){
+            try {
+                throw new Exception("用户名不能为空");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            //System.out.println("用户名不能为空");
+            //return;
+        } else if(hasExists){
+            try {
+                throw new Exception("该用户名已经存在");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            //System.out.println("该用户名已经存在");
+            //return;
+        } else if(len > 12){
+            try {
+                throw new Exception("用户名最大长度不能超过12位");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            // System.out.println("用户名最大长度不能超过12位");
+            //return;
+        } else {
+            ONLINE_CLIENT_MAP.put(userName, this.client);
+            printOnlineClient();
+            this.sendMessage(this.client, "恭喜" + userName + "注册成功!", false);
+        }
     }
 
     /**

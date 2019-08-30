@@ -18,12 +18,12 @@ public class MulThreadServer {
 
     public static void main(String[] args) {
         try {
-            int port = 6666;
+            int port = 6667;
             if (args.length >= 1) {
                 try {
                     port = Integer.parseInt(args[0]);
                 } catch (NumberFormatException e) {
-                    port = 6666;
+                    port = 6667;
                     System.out.println("指定端口不是有效格式0-65535，采用默认端口" + port);
                 }
             }

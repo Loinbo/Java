@@ -23,12 +23,12 @@ public class MulThreadClient {
             }
 
             //2.读取端口
-            int port = 6666;
+            int port = 6667;
             if (args.length == 2) {
                 try {
                     port = Integer.parseInt(args[1]);
                 } catch (NumberFormatException e){
-                    port = 6666;
+                    port = 6667;
                     System.out.println("指定端口不是有效格式的端口0-65535，采用默认端口" + port);
                 }
             }
